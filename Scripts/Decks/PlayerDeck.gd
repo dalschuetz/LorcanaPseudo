@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	pass
-	#set draw card to true (goes first)
+	#set drawn card to true (goes first, can't draw card)
 
 func _process(delta: float) -> void:
 	pass
