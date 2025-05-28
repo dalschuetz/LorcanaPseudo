@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://ggo7gik2b6ke"]
+
+[ext_resource type="Script" uid="uid://bb4yct8aipwe1" path="res://Scripts/BattleManager/BattleManager.gd" id="1_f71cu"]
+[ext_resource type="Script" uid="uid://csee1k0haakor" path="res://Scripts/Decks/OpponentDeck.gd" id="2_ev3u5"]
+[ext_resource type="Script" uid="uid://cxmn01vgvko3r" path="res://Scripts/Decks/PlayerDeck.gd" id="3_64sa1"]
+[ext_resource type="Script" uid="uid://clpqbul7bui52" path="res://Scripts/Discards/OpponentDiscard.gd" id="4_syd0p"]
+[ext_resource type="Script" uid="uid://cns3mqjwue2fu" path="res://Scripts/Discards/PlayerDiscard.gd" id="5_fx5jo"]
+[ext_resource type="Script" uid="uid://bkcfo6qk0ryob" path="res://Scripts/Hands/OpponentHand.gd" id="6_k52d4"]
+[ext_resource type="Script" uid="uid://bonxj6byu82i6" path="res://Scripts/Hands/PlayerHand.gd" id="7_a5qw3"]
+[ext_resource type="Script" uid="uid://cmqbop8o45nf7" path="res://Scripts/Inkwells/OpponentInkwell.gd" id="8_u2cns"]
+[ext_resource type="Script" uid="uid://dasrerngbq447" path="res://Scripts/Inkwells/PlayerInkwell.gd" id="9_ad5g7"]
+[ext_resource type="Script" uid="uid://655s3uf0tbcn" path="res://Scripts/PlayZones/OpponentPlayZone.gd" id="10_5l2u8"]
+[ext_resource type="Script" uid="uid://bee364xtdbum7" path="res://Scripts/PlayZones/PlayerPlayZone.gd" id="11_prqfg"]
+
+[node name="LorcanaGame" type="Node2D"]
+
+[node name="BattleManager" type="Node" parent="."]
+script = ExtResource("1_f71cu")
+
+[node name="Decks" type="Node" parent="."]
+
+[node name="OpponentDeck" type="Node2D" parent="Decks"]
+script = ExtResource("2_ev3u5")
+
+[node name="PlayerDeck" type="Node2D" parent="Decks"]
+script = ExtResource("3_64sa1")
+
+[node name="Discards" type="Node" parent="."]
+
+[node name="OpponentDiscard" type="Node2D" parent="Discards"]
+script = ExtResource("4_syd0p")
+
+[node name="PlayerDiscard" type="Node2D" parent="Discards"]
+script = ExtResource("5_fx5jo")
+
+[node name="EndTurnButtons" type="Node" parent="."]
+
+[node name="OpponentEndTurn" type="Button" parent="EndTurnButtons"]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="PlayerEndTurn" type="Button" parent="EndTurnButtons"]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Hands" type="Node" parent="."]
+
+[node name="OpponentHand" type="Node2D" parent="Hands"]
+script = ExtResource("6_k52d4")
+
+[node name="PlayerHand" type="Node2D" parent="Hands"]
+script = ExtResource("7_a5qw3")
+
+[node name="InkTrackers" type="Node" parent="."]
+
+[node name="OpponentInk" type="RichTextLabel" parent="InkTrackers"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerInk" type="RichTextLabel" parent="InkTrackers"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Inkwells" type="Node" parent="."]
+
+[node name="OpponentInkwell" type="Node2D" parent="Inkwells"]
+script = ExtResource("8_u2cns")
+
+[node name="PlayerInkwell" type="Node2D" parent="Inkwells"]
+script = ExtResource("9_ad5g7")
+
+[node name="LoreTrackers" type="Node" parent="."]
+
+[node name="OpponentLore" type="RichTextLabel" parent="LoreTrackers"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerLore" type="RichTextLabel" parent="LoreTrackers"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayZones" type="Node" parent="."]
+
+[node name="OpponentPlayZone" type="Node2D" parent="PlayZones"]
+script = ExtResource("10_5l2u8")
+
+[node name="PlayerPlayZone" type="Node2D" parent="PlayZones"]
+script = ExtResource("11_prqfg")
