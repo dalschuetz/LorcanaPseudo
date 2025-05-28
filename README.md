@@ -399,3 +399,159 @@ LorcanaGame/
 │   │       #         signal card_played(card), signal turn_ended()
 │   │       # Virtual: make_decisions() (overridden by AIPlayer for automation)
 │   │
+
+
+v2
+LorcanaGame/
+├── project.godot
+│   # Main Scene: scenes/main.tscn
+│   # Autoloads: src/game_manager.gd, src/card_database.gd, src/deck_manager.gd
+│
+├── scenes/
+│   ├── main.tscn
+│   │   # Main (Node)
+│   │   └── SceneContainer (Control)
+│   │   └── main.gd
+│   │
+│   ├── game/
+│   │   ├── game.tscn
+│   │   │   # Game (Control)
+│   │   │   ├── OpponentArea (PlayerArea)
+│   │   │   ├── SharedUI (Control)
+│   │   │   │   ├── GameInfo (VBoxContainer)
+│   │   │   │   │   ├── TurnIndicator (Label)
+│   │   │   │   │   └── PhaseDisplay (Label)
+│   │   │   │   └── ActionPanel (HBoxContainer)
+│   │   │   │       ├── EndTurnButton (Button)
+│   │   │   │       ├── QuestButton (Button)
+│   │   │   │       ├── ChallengeButton (Button)
+│   │   │   │       └── InkButton (Button)
+│   │   │   ├── YourArea (PlayerArea)
+│   │   │   ├── TurnManager (TurnManager)
+│   │   │   └── CombatResolver (Node)
+│   │   │   └── game.gd
+│   │   │
+│   │   ├── player_area.tscn
+│   │   │   # PlayerArea (Control)
+│   │   │   ├── PlayerInfo (HBoxContainer)
+│   │   │   │   ├── PlayerName (Label)
+│   │   │   │   ├── LoreCounter (Label)
+│   │   │   │   └── InkCounter (Label)
+│   │   │   └── ZoneContainer (VBoxContainer)
+│   │   │       ├── HandZone (HandZone)
+│   │   │       ├── PlayZone (PlayZone)
+│   │   │       └── PileContainer (HBoxContainer)
+│   │   │           ├── DeckZone (DeckZone)
+│   │   │           └── DiscardZone (DiscardZone)
+│   │   │   └── player_area.gd
+│   │   │
+│   │   ├── turn_manager.tscn
+│   │   │   # TurnManager (Node)
+│   │   │   └── PhaseTimer (Timer)
+│   │   │   └── turn_manager.gd
+│   │   │
+│   │   └── combat_resolver.tscn
+│   │       # CombatResolver (Node)
+│   │       └── combat_resolver.gd
+│   │
+│   ├── cards/
+│   │   └── card.tscn
+│   │       # Card (Control)
+│   │       ├── CardImage (TextureRect)
+│   │       ├── InteractionArea (Area2D)
+│   │       │   └── CollisionShape2D
+│   │       ├── SelectionHighlight (ColorRect)
+│   │       ├── ExertedOverlay (ColorRect)
+│   │       ├── DamageLabel (Label)
+│   │       └── InkableIndicator (ColorRect)
+│   │       └── card.gd
+│   │
+│   ├── zones/
+│   │   ├── hand_zone.tscn
+│   │   │   # HandZone (Control)
+│   │   │   ├── HandContainer (HBoxContainer)
+│   │   │   └── HandInfo (VBoxContainer)
+│   │   │       ├── HandCounter (Label)
+│   │   │       └── SelectedCard (Label)
+│   │   │   └── hand_zone.gd
+│   │   │
+│   │   ├── play_zone.tscn
+│   │   │   # PlayZone (Control)
+│   │   │   ├── CharacterArea (GridContainer)
+│   │   │   └── PlayInfo (VBoxContainer)
+│   │   │       ├── CharacterCount (Label)
+│   │   │       └── SelectedCharacter (Label)
+│   │   │   └── play_zone.gd
+│   │   │
+│   │   ├── deck_zone.tscn
+│   │   │   # DeckZone (Control)
+│   │   │   ├── DeckPile (ColorRect)
+│   │   │   ├── DeckCounter (Label)
+│   │   │   └── ClickArea (Area2D)
+│   │   │       └── CollisionShape2D
+│   │   │   └── deck_zone.gd
+│   │   │
+│   │   └── discard_zone.tscn
+│   │       # DiscardZone (Control)
+│   │       ├── DiscardPile (ColorRect)
+│   │       ├── TopCard (TextureRect)
+│   │       ├── DiscardCounter (Label)
+│   │       ├── ClickArea (Area2D)
+│   │       │   └── CollisionShape2D
+│   │       └── PileViewer (PopupPanel)
+│   │           ├── ViewerContainer (VBoxContainer)
+│   │           │   ├── ViewerTitle (Label)
+│   │           │   ├── CardList (VBoxContainer)
+│   │           │   └── CloseButton (Button)
+│   │       └── discard_zone.gd
+│   │
+│   ├── ui/
+│   │   ├── targeting_selector.tscn
+│   │   │   # TargetingSelector (Control)
+│   │   │   ├── TargetPrompt (Label)
+│   │   │   ├── TargetButtons (VBoxContainer)
+│   │   │   └── CancelButton (Button)
+│   │   │   └── targeting_selector.gd
+│   │   │
+│   │   └── win_screen.tscn
+│   │       # WinScreen (Control)
+│   │       ├── WinMessage (Label)
+│   │       └── RestartButton (Button)
+│   │       └── win_screen.gd
+│   │
+│   └── ai/
+│       └── ai_player.tscn
+│           # AIPlayer (Node)
+│           ├── DecisionTimer (Timer)
+│           └── BehaviorController (Node)
+│           └── ai_player.gd
+│
+├── src/
+│   ├── game_manager.gd
+│   ├── card_database.gd
+│   └── deck_manager.gd
+│
+├── scripts/
+│   ├── base/
+│   │   ├── zone_base.gd
+│   │   └── player.gd
+│   │
+│   ├── systems/
+│   │   ├── combat_system.gd
+│   │   ├── targeting_system.gd
+│   │   ├── effect_system.gd
+│   │   └── ability_system.gd
+│   │
+│   ├── ai/
+│   │   ├── ai_behavior.gd
+│   │   └── ai_evaluator.gd
+│   │
+│   └── utils/
+│       ├── http_image_loader.gd
+│       └── card_sorter.gd
+│
+└── data/
+    ├── card_database.json
+    ├── deck_amber_steel.json
+    ├── deck_emerald_ruby.json
+    └── deck_sapphire_amethyst.json
