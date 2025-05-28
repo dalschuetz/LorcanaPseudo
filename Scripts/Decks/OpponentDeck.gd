@@ -7,6 +7,7 @@ func _ready() -> void:
 	pass
 	#set drawn card to false (goes second)
 	#shuffle deck
+	#place 7 cards in hand
 
 func _process(delta: float) -> void:
 	pass
