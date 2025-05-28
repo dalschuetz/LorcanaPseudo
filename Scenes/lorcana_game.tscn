@@ -16,6 +16,17 @@
 
 [node name="LorcanaGame" type="Node2D"]
 
+[node name="Managers" type="Node" parent="."]
+
+[node name="BattleManager" type="Node" parent="Managers"]
+script = ExtResource("1_f71cu")
+
+[node name="InputManager" type="Node2D" parent="Managers"]
+script = ExtResource("10_ev3u5")
+
+[node name="CardManager" type="Node2D" parent="Managers"]
+script = ExtResource("11_64sa1")
+
 [node name="Decks" type="Node" parent="."]
 
 [node name="OpponentDeck" type="Node2D" parent="Decks"]
@@ -77,17 +88,6 @@ offset_bottom = 40.0
 [node name="PlayerLore" type="RichTextLabel" parent="LoreTrackers"]
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Managers" type="Node" parent="."]
-
-[node name="BattleManager" type="Node" parent="Managers"]
-script = ExtResource("1_f71cu")
-
-[node name="InputManager" type="Node2D" parent="Managers"]
-script = ExtResource("10_ev3u5")
-
-[node name="CardManager" type="Node2D" parent="Managers"]
-script = ExtResource("11_64sa1")
 
 [node name="PlayZones" type="Node" parent="."]
 
