@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ggo7gik2b6ke"]
+[gd_scene load_steps=14 format=3 uid="uid://ggo7gik2b6ke"]
 
 [ext_resource type="Script" uid="uid://bb4yct8aipwe1" path="res://Scripts/Managers/BattleManager.gd" id="1_f71cu"]
 [ext_resource type="Script" uid="uid://csee1k0haakor" path="res://Scripts/Decks/OpponentDeck.gd" id="2_ev3u5"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://dasrerngbq447" path="res://Scripts/Inkwells/PlayerInkwell.gd" id="9_ad5g7"]
 [ext_resource type="Script" uid="uid://655s3uf0tbcn" path="res://Scripts/PlayZones/OpponentPlayZone.gd" id="10_5l2u8"]
 [ext_resource type="Script" uid="uid://dj883kchrveat" path="res://Scripts/Managers/InputManager.gd" id="10_ev3u5"]
+[ext_resource type="Script" uid="uid://g1bkv71pse06" path="res://Scripts/Managers/CardManager.gd" id="11_64sa1"]
 [ext_resource type="Script" uid="uid://bee364xtdbum7" path="res://Scripts/PlayZones/PlayerPlayZone.gd" id="11_prqfg"]
 
 [node name="LorcanaGame" type="Node2D"]
@@ -84,6 +85,9 @@ script = ExtResource("1_f71cu")
 
 [node name="InputManager" type="Node2D" parent="Managers"]
 script = ExtResource("10_ev3u5")
+
+[node name="CardManager" type="Node2D" parent="Managers"]
+script = ExtResource("11_64sa1")
 
 [node name="PlayZones" type="Node" parent="."]
 
